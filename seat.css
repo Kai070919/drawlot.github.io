@@ -1,0 +1,61 @@
+.center{
+    text-align:center;
+    justify-content:center;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+.table{
+    text-align:center;
+    justify-content:center;
+    margin:auto;
+    font-size: 50px;
+}
+.subtitle{
+    text-align:center;
+    justify-content:center;
+    font-size: 50px;
+    width:100px;
+    margin:auto;
+    font-family: 標楷體;
+}
+.button{
+    text-align:center;
+    justify-content:center;
+    background-color: #FFEEDD;
+    width: 50px;
+    margin:auto;
+    padding: 8px;
+    cursor:pointer;
+    border-radius: 10px;
+    font-size: 30px;
+    font-family: 標楷體;
+}
+.title{
+    text-align:center;
+    justify-content:center;
+    font-size: 70px;
+    font-family: 標楷體;
+}
+.td{
+    border-width: 1px;
+    border-style: solid;
+    font-family: 標楷體;
+    background-color:#FFECF5;
+    color: 	#84C1FF;
+    font-weight:bolder;
+}
+.test{
+    margin-top: 10px;
+    margin-bottom: 10px;
+    border-radius: 10px;
+    background-color: #FFE4CA;
+    font-family: 標楷體;
+    font-size: 20px;
+}
+.body{
+    background-color:#C4E1FF;
+}
+.span{
+    font-size: 20px;
+    font-family: 標楷體;
+}

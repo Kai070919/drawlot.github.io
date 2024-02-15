@@ -1,0 +1,107 @@
+<!Doctype html>
+    <html>
+        <head>
+            <meta name="viewport" content="width=dive-width, initial-scale=1.0" />
+            <title>抽座位~</title>
+            <link rel="stylesheet" type="text/css" href="seat.css"/>
+            <script>
+                let allnums = [];
+                var realcount = 0;
+                var max = 37;
+
+                function drawlots(){
+                    var onenum = Math.floor(Math.random() * max) + 1;
+                    let inarr=false;
+                    if(realcount > 0){    
+                        for(var i = 0; i < allnums.length; i++){
+                            if(allnums[i] == onenum){
+                                inarr = true;
+                                break;
+                            }
+                        }
+                    }
+                    if(inarr){
+                        drawlots();
+                        return;
+                    }else{
+                        allnums[realcount] = onenum;
+                        realcount++;
+                        if(realcount != max){
+                            drawlots();
+                            return;
+                        }
+                    }
+                    console.log(allnums);
+                    let realcount2 = 0;
+                    var col = 6;
+                    var row = 6;
+                    var table="<table id='seat' class='table' cellpadding='10'>";
+                    for(i = 0 ; i < col ; i++){
+                        table+="<tr>";
+                        for(j = 0 ; j < row ; j++){
+                            table+="<td class='td'>"+allnums[realcount2]+"</td>";
+                            realcount2++;
+                            if(i==0 && j== (row-1)){
+                                table+="<td class='td'>"+allnums[realcount2]+"</td>";
+                                realcount2++;
+                            }
+                        }
+                        table+="</tr>";
+                    }
+                    table+="</table>";
+                    allnums = [];
+                    realcount = 0;
+                    let elem = document.querySelector("#seat");
+                    elem.innerHTML=table;
+                }  
+                
+                function over(elem){
+                    elem.style.backgroundColor="#ddaaaa";
+                }
+                function out(elem){
+                    elem.style.backgroundColor="#ffcccc";
+                }
+                //表格
+                function addtable(){
+                    var defaultValue = 10;
+                    var col = 6;
+                    var row = 6;
+                    var table="<table id='seat' class='table' cellpadding='10'>";
+                    for(i = 0 ; i < col ; i++){
+                        table+="<tr>";
+                        for(j = 0 ; j < row ; j++){
+                            table+="<td class='td'>"+defaultValue+"</td>";
+                            if(i==0 && j== (row-1)){
+                                table+="<td class='td'>"+defaultValue+"</td>";
+                            }
+                        }
+                        table+="</tr>";
+                    }
+                    table+="</table>";
+                    document.write(table);
+                }
+            </script>
+        </head>
+        <body class="body">
+            <h1 class="title">座位表</h1>
+            <hr/>
+            <div class="center">
+                <input class="test" id="cols" type="test"><span style="font-size:20px">行</span>
+                <input class="test" id="rows" type="tests"><span style="font-size:20px">列+</span>
+                <input type="test"><span style="font-size:20px">個</span>
+            </div>
+            <div class="subtitle">
+                講台
+            </div>
+            <script>
+                addtable();
+            </script>
+            <div class="center">
+                <span
+                    class="button" 
+                    onmouseover="over(this);"
+                    onmouseout="out(this);" onclick="drawlots();">
+                抽籤</span>
+            </div>
+        </body>
+    </html>
